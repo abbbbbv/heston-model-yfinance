@@ -12,7 +12,6 @@ This repository contains a Python implementation of the Heston stochastic volati
 - Visualization of simulated paths, percentile bands, and final price distributions
 - Performance metrics: RMSE and Median Absolute Error (MedAE)
 
-"""
 Heston Model Overview:
 ----------------------
 The Heston model introduces stochastic volatility into the standard Black-Scholes framework.
@@ -39,7 +38,6 @@ This dynamic pulls the simulated stock prices back toward a long-term average, s
     - Stronger influence in early steps due to possible skew of extreme returns
 This approach aims to capture the tendency of stock prices to revert to their historical averages, enhancing the model's realism.
 
-"""
 
 ## Usage
 pip install yfinance numpy matplotlib
