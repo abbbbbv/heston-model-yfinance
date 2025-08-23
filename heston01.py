@@ -2,34 +2,6 @@ import yfinance as yf
 import numpy as np
 import matplotlib.pyplot as plt
 
-"""
-Heston Model Overview:
-----------------------
-The Heston model introduces stochastic volatility into the standard Black-Scholes framework.
-
-Core Dynamics (S = stock price, V = variance):
-    dS_t = μ * S_t * dt + sqrt(V_t) * S_t * dW1_t
-    dV_t = κ(θ - V_t) * dt + σ * sqrt(V_t) * dW2_t
-
-Discretization:
-    S_{t+1} = S_t + μ * S_t * dt + sqrt(V_t) * S_t * sqrt(dt) * Z1
-    V_{t+1} = V_t + κ(θ - V_t) * dt + σ * sqrt(V_t) * sqrt(dt) * Z2
-
-Where:
-    - Z1 and Z2 are standard normal variables with correlation ρ
-    - dW2_t = ρ * dW1_t + sqrt(1 - ρ²) * dZ_t (correlated Brownian motions)
-
-Custom Modification:
---------------------
-To improve realism, a **mean reversion strategy toward the 52-week average price** is added to the S_t update step.
-This dynamic pulls the simulated stock prices back toward a long-term average, scaled by:
-    - Deviation from the 52-week average
-    - Decay over time
-    - Estimated return magnitude (μ)
-    - Stronger influence in early steps due to possible skew of extreme returns
-This approach aims to capture the tendency of stock prices to revert to their historical averages, enhancing the model's realism.
-----------------------
-"""
 
 class HestonModel:
     def __init__(self, stock_symbol):
