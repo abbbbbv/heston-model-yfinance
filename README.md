@@ -30,7 +30,7 @@ Where:
     - dW2_t = ρ * dW1_t + sqrt(1 - ρ²) * dZ_t (correlated Brownian motions)
 
 Custom Modification:
---------------------
+---
 To improve realism, a **mean reversion strategy toward the 52-week average price** is added to the S_t update step.
 This dynamic pulls the simulated stock prices back toward a long-term average, scaled by:
     - Deviation from the 52-week average
@@ -38,7 +38,7 @@ This dynamic pulls the simulated stock prices back toward a long-term average, s
     - Estimated return magnitude (μ)
     - Stronger influence in early steps due to possible skew of extreme returns
 This approach aims to capture the tendency of stock prices to revert to their historical averages, enhancing the model's realism.
-----------------------
+
 """
 
 ## Usage
